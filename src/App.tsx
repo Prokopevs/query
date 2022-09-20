@@ -8,31 +8,31 @@ export default function App() {
     const [birth, setBirth] = React.useState("")
     const [loading, setLoading] = React.useState(false)
 
-    // React.useEffect(() => {
-    //   const foo = () => {
-    //     fetch("https://swapi.dev/api/people/")
-    //         .then(res => res.json())
-    //         .then(data => setData(data.results))
-    //         .catch(error => console.log(error))
-    //   }
-    //   foo()
-    // }, [])
-
-    const foo = async () => {
-        setLoading(true)
-        try {
-            const res = await axios.get("https://swapi.dev/api/people/")
-            setData(res.data.results)
-        } catch (error) {
-            console.log(error)
-        } finally {
-            setLoading(false)
-        }
-    }
-
     React.useEffect(() => {
-        foo()
+      const foo = () => {
+        fetch("https://swapi.dev/api/people/")
+            .then(res => res.json())
+            .then(data => setData(data.results))
+            .catch(error => console.log(error))
+      }
+      foo()
     }, [])
+
+    // const foo = async () => {
+    //     setLoading(true)
+    //     try {
+    //         const res = await axios.get("https://swapi.dev/api/people/")
+    //         setData(res.data.results)
+    //     } catch (error) {
+    //         console.log(error)
+    //     } finally {
+    //         setLoading(false)
+    //     }
+    // }
+
+    // React.useEffect(() => {
+    //     foo()
+    // }, [])
 
     const handleSubmit = (e: any) => {
         e.preventDefault()
