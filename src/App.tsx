@@ -9,13 +9,13 @@ export default function App() {
     const [loading, setLoading] = React.useState(false)
 
     React.useEffect(() => {
-      const foo = () => {
-        fetch("https://swapi.dev/api/people/")
-            .then(res => res.json())
-            .then(data => setData(data.results))
-            .catch(error => console.log(error))
-      }
-      foo()
+        const foo = () => {
+            fetch("https://swapi.dev/api/people/")
+                .then((res) => res.json())
+                .then((data) => setData(data.results))
+                .catch((error) => console.log(error))
+        }
+        foo()
     }, [])
 
     // const foo = async () => {
@@ -96,4 +96,3 @@ export default function App() {
 
     return <div>loading...</div>
 }
-
